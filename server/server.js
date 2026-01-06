@@ -214,6 +214,12 @@ app.post('/api/create-checkout-session', async (req, res) => {
       }
     });
 
+    console.log('Creating Stripe session with items:', items);
+console.log('Email:', email);
+console.log('Client URL:', process.env.CLIENT_URL);
+console.log('Stripe Key:', process.env.STRIPE_SECRET_KEY ? 'OK' : 'MISSING');
+
+
     // Create order in database
     const order = new Order({
       items: items.map(item => ({
