@@ -56,6 +56,13 @@ export const products = [
     image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500&h=500&fit=crop',
     description: '20000mAh portable power bank with fast charging and dual USB ports'
   },
+  {
+    id: 9,
+    name: 'Portable Charger',
+    price: 39.99,
+    image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500&h=500&fit=crop',
+    description: '20000mAh portable power bank with fast charging and dual USB ports'
+  },
 ];
 
 export default products;
