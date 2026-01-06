@@ -5,25 +5,25 @@ const stripe = require('stripe');
 const connectDB = require('./db/db');
 const Order = require('./model/order');
 
-// Load environment variables
+// load the env variables
 dotenv.config();
 
-// Initialize express app
+// initialize express app
 const app = express();
 
-// Initialize Stripe
+// initialize stripe
 const stripeClient = stripe(process.env.STRIPE_SECRET_KEY);
 
-// Connect to MongoDB
+// connect to database
 connectDB();
 
-// Middleware
+// for handling CORS issues
 app.use(cors({
   origin: process.env.CLIENT_URL || 'http://localhost:5173',
   credentials: true
 }));
 
-// Stripe webhook endpoint (MUST be before express.json() middleware)
+// stripe webhook endpoint - to handle events from stripe
 app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
   const sig = req.headers['stripe-signature'];
   
@@ -86,10 +86,10 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
   res.json({ received: true });
 });
 
-// Apply express.json() middleware for all other routes
+// middleware to parse JSON bodies
 app.use(express.json());
 
-// Health check route
+// normal routes
 app.get('/health', (req, res) => {
   res.json({ status: 'OK', message: 'Server is running' });
 });
@@ -170,7 +170,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
     });
   }
 
-  // Email validation
+  // Email validate
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     return res.status(400).json({ 
@@ -190,7 +190,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
       });
     }
 
-    // Create Stripe checkout session
+    // Create Stripe checkout session - map items to Stripe format
     const session = await stripeClient.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: items.map(item => ({
@@ -214,10 +214,10 @@ app.post('/api/create-checkout-session', async (req, res) => {
       }
     });
 
-    console.log('Creating Stripe session with items:', items);
+    console.log('Creating Stripe session with items:', items); // debug
 console.log('Email:', email);
 console.log('Client URL:', process.env.CLIENT_URL);
-console.log('Stripe Key:', process.env.STRIPE_SECRET_KEY ? 'OK' : 'MISSING');
+console.log('Stripe Key:', process.env.STRIPE_SECRET_KEY ? 'OK' : 'MISSING'); 
 
 
     // Create order in database

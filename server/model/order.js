@@ -23,7 +23,7 @@ orderSchema.pre('save', async function() {
   this.updatedAt = Date.now();
 });
 
-// Optional: format order for JSON responses
+// format order for JSON responses
 orderSchema.methods.toJSON = function() {
   return this.toObject();
 };

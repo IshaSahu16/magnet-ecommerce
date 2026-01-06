@@ -30,7 +30,7 @@ const Cart = ({ cart, removeFromCart, updateQuantity, onCheckout }) => {
         </div>
       </header>
 
-      {/* Main Content */}
+      {/* Main */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {cart.length === 0 ? (
           <div className="flex flex-col items-center justify-center min-h-96">
@@ -55,7 +55,7 @@ const Cart = ({ cart, removeFromCart, updateQuantity, onCheckout }) => {
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-            {/* Cart Items Section */}
+            {/* Cart Item Section */}
             <div className="lg:col-span-2 space-y-6">
               {/* Section Header */}
               <div className="flex items-center justify-between mb-6">
@@ -100,9 +100,9 @@ const Cart = ({ cart, removeFromCart, updateQuantity, onCheckout }) => {
                           </div>
                         </div>
 
-                        {/* Quantity & Action Buttons */}
+                        {/* Quantity ic dec button */}
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mt-4 pt-4 border-t border-slate-700">
-                          {/* Quantity Selector */}
+                          {/* plus minus buttons */}
                           <div className="flex items-center gap-1 bg-slate-700 rounded-lg p-1 border border-slate-600">
                             <button
                               onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -123,7 +123,7 @@ const Cart = ({ cart, removeFromCart, updateQuantity, onCheckout }) => {
                             </button>
                           </div>
 
-                          {/* Remove Button */}
+                          {/* delete item */}
                           <button
                             onClick={() => removeFromCart(item.id)}
                             className="ml-auto px-4 py-2 text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-lg transition-all duration-200 flex items-center gap-2 font-medium"
@@ -147,7 +147,7 @@ const Cart = ({ cart, removeFromCart, updateQuantity, onCheckout }) => {
                 ))}
               </div>
 
-              {/* Trust Indicators */}
+              {/* visual component */}
               <div className="bg-slate-800 border border-slate-700 rounded-xl p-6 mt-8">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="flex items-center gap-3">
@@ -181,12 +181,12 @@ const Cart = ({ cart, removeFromCart, updateQuantity, onCheckout }) => {
               </div>
             </div>
 
-            {/* Order Summary Sidebar */}
+            {/* summary of the order*/}
             <div className="lg:col-span-1">
               <div className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 sticky top-24 shadow-xl">
                 <h3 className="text-2xl font-bold text-white mb-6">Order Summary</h3>
 
-                {/* Price Breakdown */}
+                {/* price detailed */}
                 <div className="space-y-4 mb-6 pb-6 border-b border-slate-700">
                   <div className="flex justify-between items-center">
                     <span className="text-slate-400">Subtotal</span>
@@ -212,7 +212,7 @@ const Cart = ({ cart, removeFromCart, updateQuantity, onCheckout }) => {
                   </p>
                 </div>
 
-                {/* Checkout Button */}
+                {/* go to checkout */}
                 <button
                   onClick={onCheckout}
                   className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-bold py-4 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 mb-3 flex items-center justify-center gap-2"
@@ -221,7 +221,7 @@ const Cart = ({ cart, removeFromCart, updateQuantity, onCheckout }) => {
                   Proceed to Checkout
                 </button>
 
-                {/* Continue Shopping */}
+                {/* Continue to shop on home */}
                 <button
                   onClick={() => navigate('/')}
                   className="w-full border-2 border-slate-600 hover:border-blue-500 text-slate-300 hover:text-blue-400 font-semibold py-3 rounded-lg transition-all duration-200"
@@ -229,7 +229,7 @@ const Cart = ({ cart, removeFromCart, updateQuantity, onCheckout }) => {
                   Continue Shopping
                 </button>
 
-                {/* Security Badge */}
+                {/* stripe powered coatiner */}
                 <div className="mt-6 pt-6 border-t border-slate-700 text-center">
                   <div className="inline-flex items-center gap-2 text-xs text-slate-400 bg-slate-800 px-3 py-2 rounded-full mb-2">
                     <Lock size={14} className="text-cyan-400" />

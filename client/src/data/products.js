@@ -1,4 +1,4 @@
-// Mock product data
+// Mock product data for the e-com to work properly
 export const products = [
   {
     id: 1,

@@ -7,7 +7,7 @@ import Checkout from './components/Checkout';
 import Success from './components/Success';
 import Failure from './components/Failure';
 
-// Modern Dark Navbar Component
+//navbar component
 const Navbar = ({ cartCount }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -96,7 +96,7 @@ const Navbar = ({ cartCount }) => {
   );
 };
 
-// Modern Dark Home Component
+//home component
 const Home = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -161,7 +161,7 @@ const Home = ({ addToCart }) => {
   return (
     <div className="min-h-screen bg-slate-950 pt-20 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Modern Hero Section */}
+        {/* Hero Sec */}
         <div className="text-center mb-16 space-y-8 pt-8">
           <div className="inline-block">
             <span className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 text-cyan-400 px-6 py-2 rounded-full text-sm font-bold">
@@ -184,7 +184,7 @@ const Home = ({ addToCart }) => {
             Upgrade your tech game today.
           </p>
           
-          {/* Feature Pills */}
+          {/* dummpy appleaing content */}
           <div className="flex flex-wrap justify-center gap-4 pt-6">
             <div className="group bg-slate-800 border border-slate-700 hover:border-blue-500 px-6 py-3 rounded-lg transition-all cursor-pointer">
               <div className="flex items-center gap-2">
@@ -215,7 +215,7 @@ const Home = ({ addToCart }) => {
           </div>
         </div>
 
-        {/* Modern Products Grid */}
+        {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product, index) => (
             <div 
@@ -235,14 +235,14 @@ const Home = ({ addToCart }) => {
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
                 
-                {/* Price Badge */}
+                {/* Price */}
                 <div className="absolute top-2 right-2 z-20">
                   <div className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-3 py-1 rounded-lg font-bold text-sm shadow-xl">
                     ${product.price}
                   </div>
                 </div>
 
-                {/* Trending Badge */}
+                {/* Trending */}
                 <div className="absolute top-2 left-2 bg-slate-900/90 backdrop-blur-sm px-2 py-1 rounded-lg shadow-lg z-20 border border-slate-700">
                   <div className="flex items-center gap-1">
                     <TrendingUp size={12} className="text-green-400" />
@@ -299,7 +299,7 @@ const Home = ({ addToCart }) => {
           ))}
         </div>
 
-        {/* Trust Indicators */}
+        {/* visual component */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-slate-800 border border-slate-700 rounded-2xl p-8 text-center hover:border-blue-500 transition-all">
             <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4">
@@ -383,6 +383,7 @@ function App() {
   };
 
   return (
+    //routes are defined here to navigate between different pages
     <Router>
       <div className="min-h-screen bg-slate-950">
         <Navbar 
@@ -416,7 +417,7 @@ function App() {
           <Route path="/failed" element={<Failure />} />
         </Routes>
 
-        {/* Modern Footer */}
+        {/* Footer component */}
         <footer className="relative bg-slate-900 border-t border-slate-800 text-white py-12 mt-20">
           <div className="relative max-w-7xl mx-auto px-4 text-center">
             <div className="mb-6">

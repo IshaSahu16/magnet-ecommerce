@@ -39,7 +39,7 @@ const Checkout = ({ cart, removeFromCart, updateQuantity }) => {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/create-checkout-session`,
+        `${import.meta.env.VITE_API_URL}/api/create-checkout-session`,  //main api for the chceckout session
         {
           items: cart,
           email: email,
@@ -54,7 +54,8 @@ const Checkout = ({ cart, removeFromCart, updateQuantity }) => {
       setLoading(false);
     }
   };
-
+  
+  //if the caryt is empty
   if (cart.length === 0) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -145,7 +146,7 @@ const Checkout = ({ cart, removeFromCart, updateQuantity }) => {
           </div>
         </div>
 
-        {/* Payment Summary */}
+        {/* pay summary sidebar shown */}
         <div className="lg:col-span-1">
           <div className="bg-white rounded-xl shadow-lg p-6 sticky top-24">
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
@@ -153,7 +154,7 @@ const Checkout = ({ cart, removeFromCart, updateQuantity }) => {
               Payment Details
             </h3>
             
-            {/* Price Breakdown */}
+            {/* price detailed */}
             <div className="space-y-3 mb-6 pb-6 border-b">
               <div className="flex justify-between text-gray-600">
                 <span>Subtotal ({itemCount} items)</span>
@@ -173,9 +174,9 @@ const Checkout = ({ cart, removeFromCart, updateQuantity }) => {
               </div>
             </div>
 
-            {/* Email Input */}
+            {/* provide an email address */}
             <div className="mb-6">
-              <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+              <label className="text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
                 <Mail size={16} className="text-blue-600" />
                 Email Address <span className="text-red-500">*</span>
               </label>
@@ -200,7 +201,7 @@ const Checkout = ({ cart, removeFromCart, updateQuantity }) => {
               </div>
             )}
 
-            {/* Checkout Button */}
+            {/* go to checkout */}
             <button
               onClick={handleCheckout}
               disabled={loading}

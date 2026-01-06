@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//function to be able to connect to the database
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/stripe-ecommerce');

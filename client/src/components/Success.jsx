@@ -24,7 +24,7 @@ const Success = ({ clearCart }) => {
   useEffect(() => {
     if (sessionId) {
       fetchOrderDetails();
-      // Clear cart after successful payment
+      // clear cart after successful payment of order
       if (clearCart) {
         clearCart();
       }
@@ -176,11 +176,7 @@ const Success = ({ clearCart }) => {
                 <Mail className="text-blue-600 mt-1 flex-shrink-0" size={24} />
                 <div>
                   <p className="font-semibold text-gray-900 mb-1">
-                    📧 Confirmation Email Sent
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    A confirmation email with your order details and receipt has been sent to your email address. 
-                    Please check your inbox and spam folder.
+                    📧 Email 
                   </p>
                 </div>
               </div>

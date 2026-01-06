@@ -31,7 +31,7 @@ const Failure = () => {
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-          {/* Error Header */}
+          {/* Error */}
           <div className="bg-gradient-to-r from-red-500 to-red-600 p-8 text-center text-white">
             <div className="flex justify-center mb-4">
               <div className="bg-white rounded-full p-4 animate-bounce">
@@ -46,7 +46,7 @@ const Failure = () => {
 
           {/* Content */}
           <div className="p-8">
-            {/* Main Message */}
+            {/* Message */}
             <div className="mb-8 text-center">
               <p className="text-gray-600 text-lg">
                 Don't worry! Your order has not been placed and you have not been charged.
